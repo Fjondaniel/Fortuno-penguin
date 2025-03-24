@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trucking & Towing Services | Penguin Sales & Services</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://kit.fontawesome.com/your-fontawesome-kit.js" crossorigin="anonymous"></script>
+    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQb2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" /> 
+    <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
+    <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js" defer></script>
+    <style>
+        .carousel img:hover {
+            transform: scale(1.1);
+            transition: transform 0.3s ease-in-out;
+        }
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            justify-content: center;
+            align-items: center;
+        }
+        .modal img {
+            max-width: 90%;
+            max-height: 80%;
+        }
+    </style>
+</head>
+<body class="bg-gray-100">
+    <header class="bg-black shadow-md fixed w-full top-0 left-0 z-10">
+        <div class="max-w-7xl mx-auto flex justify-between items-center px-6 py-4">
+            <a href="#" class="flex items-center space-x-3">
+                <img src="img/penlogo.png" alt="Penguin Logo" class="w-12 h-12">
+                <span class="text-xl font-bold text-gold">Penguin Sales & Services</span>
+            </a>
+            <nav class="hidden md:flex space-x-6">
+                <a href="#services" class="text-gray-400 hover:text-gold transition font-medium">Services</a>
+                <a href="#about" class="text-gray-400 hover:text-gold transition font-medium">About</a>
+                <a href="#contact" class="text-gray-400 hover:text-gold transition font-medium">Contact</a>
+            </nav>
+            <button id="menu-btn" class="md:hidden focus:outline-none">
+                <i class="fas fa-bars text-2xl text-gold"></i>
+            </button>
+        </div>
+    </header>
+    
+    <section class="h-screen flex items-center justify-center bg-[url('img/hero-bg.jpg')] bg-cover bg-center">
+        <div class="text-center text-white px-6">
+            <h1 class="text-5xl font-bold uppercase tracking-wide">Reliable Trucking & Towing Services</h1>
+            <p class="text-lg mt-4 max-w-2xl mx-auto">Efficient, professional, and ready to assist you 24/7.</p>
+            <a href="#contact" class="mt-6 inline-block bg-gold text-black font-bold py-3 px-6 rounded-lg hover:bg-yellow-600 transition">Get a Quote</a>
+        </div>
+    </section>
+    
+    <section id="towtruck-gallery" class="py-16 bg-gray-900 text-white text-center">
+        <div class="max-w-7xl mx-auto px-6">
+            <h2 class="text-4xl font-bold text-gold uppercase tracking-widest">Our Tow Trucks</h2>
+            <p class="text-gray-400 mt-3 text-lg italic">Reliable and well-equipped for any towing job.</p>
+            <div class="carousel mt-8" data-flickity='{ "wrapAround": true, "autoPlay": 3000 }'>
+                <img src="img/towtruck1.jpg" alt="Tow Truck 1" class="w-80 h-52 object-cover rounded-lg shadow-lg cursor-pointer" onclick="openModal(this)">
+                <img src="img/towtruck2.jpg" alt="Tow Truck 2" class="w-80 h-52 object-cover rounded-lg shadow-lg cursor-pointer" onclick="openModal(this)">
+                <img src="img/towtruck3.jpg" alt="Tow Truck 3" class="w-80 h-52 object-cover rounded-lg shadow-lg cursor-pointer" onclick="openModal(this)">
+            </div>
+        </div>
+    </section>
+    
+    <div id="imageModal" class="modal flex">
+        <img id="modalImage" src="" alt="Expanded Tow Truck">
+    </div>
+    
+    <section id="contact" class="py-16 bg-gray-100 text-center">
+        <div class="max-w-6xl mx-auto px-6">
+            <h2 class="text-4xl font-bold text-black uppercase tracking-widest">Contact Us</h2>
+            <p class="text-gray-600 mt-3 text-lg">Get in touch for inquiries or assistance.</p>
+            <form class="mt-8 space-y-4 max-w-2xl mx-auto">
+                <input type="text" placeholder="Your Name" class="w-full p-3 bg-white text-black rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-gold">
+                <input type="email" placeholder="Your Email" class="w-full p-3 bg-white text-black rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-gold">
+                <textarea placeholder="Your Message" rows="4" class="w-full p-3 bg-white text-black rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-gold"></textarea>
+                <button type="submit" class="w-full bg-gold text-black font-bold py-3 rounded-lg hover:bg-yellow-600 transition">Send Message</button>
+            </form>
+        </div>
+    </section>
+    
+    <script>
+        function openModal(img) {
+            document.getElementById("modalImage").src = img.src;
+            document.getElementById("imageModal").style.display = "flex";
+        }
+        document.getElementById("imageModal").addEventListener("click", function() {
+            this.style.display = "none";
+        });
+    </script>
+    
+    <script>
+        const menuBtn = document.getElementById('menu-btn');
+        menuBtn.addEventListener('click', () => {
+            document.querySelector('nav').classList.toggle('hidden');
+        });
+    </script>
+</body>
+</html>
