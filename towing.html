@@ -179,11 +179,14 @@
         </div>
     </footer>
     <script>
-        const menuBtn = document.getElementById('menu-btn');
-        menuBtn.addEventListener('click', () => {
-            document.querySelector('nav').classList.toggle('hidden');
-        });
-    </script>
+        const menuBtn = document.getElementById("menu-btn");
+     const menu = document.getElementById("menu");
+ 
+     menuBtn.addEventListener("click", () => {
+         menu.classList.toggle("hidden");
+     });
+ 
+     </script>
     <script>
         document.addEventListener("DOMContentLoaded", function () {
             const dropdownButton = document.getElementById("dropdown-btn");

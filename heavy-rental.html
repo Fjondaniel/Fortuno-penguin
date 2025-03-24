@@ -31,50 +31,123 @@
             max-width: 90%;
             max-height: 80%;
         }
+        html {
+            scroll-behavior: smooth;
+        }
+        .text-gold { color: #FFD700; }
+        .bg-gold { background-color: #FFD700; }
+        .carousel-cell {
+            width: 80%;
+            margin-right: 10px;
+            border-radius: 10px;
+            overflow: hidden;
+        }
     </style>
 </head>
 <body class="bg-gray-100">
-    <header class="bg-black shadow-md fixed w-full top-0 left-0 z-10">
-        <div class="max-w-7xl mx-auto flex justify-between items-center px-6 py-4">
-            <a href="#" class="flex items-center space-x-3">
-                <img src="img/penlogo.png" alt="Penguin Logo" class="w-12 h-12">
-                <span class="text-xl font-bold text-gold">Penguin Sales & Services</span>
+    <nav class="bg-black shadow-md fixed top-0 left-0 w-full z-50">
+        <div class="max-w-7xl mx-auto flex justify-between items-center py-4 px-6">
+            <!-- Logo -->
+            <a href="index.html" class="flex items-center space-x-3">
+                <img src="img/logo.png" alt="Penguin Logo" class="w-10 h-10">
+                <span class="text-xl font-semibold text-gold">Penguin Sales & Services -> Bridal Car Services</span>
             </a>
-            <nav class="hidden md:flex space-x-6">
-                <a href="#services" class="text-gray-400 hover:text-gold transition font-medium">Services</a>
-                <a href="#about" class="text-gray-400 hover:text-gold transition font-medium">About</a>
-                <a href="#contact" class="text-gray-400 hover:text-gold transition font-medium">Contact</a>
-            </nav>
-            <button id="menu-btn" class="md:hidden focus:outline-none">
-                <i class="fas fa-bars text-2xl text-gold"></i>
-            </button>
-        </div>
-    </header>
     
-    <section class="h-screen flex items-center justify-center bg-[url('img/hero-bg.jpg')] bg-cover bg-center">
-        <div class="text-center text-white px-6">
+            <!-- Hamburger Button (Mobile) -->
+            <button id="menu-btn" class="md:hidden text-gray-400 focus:outline-none">
+                <i class="fas fa-bars text-2xl"></i>
+            </button>
+    
+            <!-- Navigation Links -->
+            <ul id="menu" class="hidden md:flex space-x-6 text-gray-400 absolute md:relative top-16 md:top-auto left-0 w-full md:w-auto bg-black md:bg-transparent p-6 md:p-0 shadow-lg md:shadow-none md:flex-row flex-col items-center md:items-start">
+                <li class="relative">
+                    <button id="dropdown-btn" class="text-gray-300 hover:text-gold transition focus:outline-none">
+                        Services ▼
+                    </button>
+                    <ul id="dropdown-menu" class="hidden absolute left-0 mt-2 w-48 bg-black text-white rounded-lg shadow-lg">
+                        <li><a href="bridal-car.html" class="block px-4 py-2 hover:bg-gray-700">Bridal Car Services</a></li>
+                        <li><a href="towing.html" class="block px-4 py-2 hover:bg-gray-700">Towing Services</a></li>
+                        <li><a href="#service3" class="block px-4 py-2 hover:bg-gray-700">Trucking Services</a></li>
+                        <li><a href="heavy-rental.html" class="block px-4 py-2 hover:bg-gray-700">Heavy Equipment Services</a></li>
+
+                    </ul>
+                </li>
+                <li><a href="#services" class="text-gray-300 hover:text-gold transition">About</a></li>
+                <li><a href="#booking" class="text-gray-300 hover:text-gold transition">Contact</a></li>
+            </ul>
+            
+        </div>
+    </nav>
+    
+    <section class="h-screen flex items-center justify-center bg-[url('img/hvduty.jpeg')] bg-cover bg-center">
+        <div class="text-center text-white px-6 bg-black/50 backdrop-blur-md p-8 rounded-lg">
             <h1 class="text-5xl font-bold uppercase tracking-wide">Reliable Trucking & Towing Services</h1>
             <p class="text-lg mt-4 max-w-2xl mx-auto">Efficient, professional, and ready to assist you 24/7.</p>
             <a href="#contact" class="mt-6 inline-block bg-gold text-black font-bold py-3 px-6 rounded-lg hover:bg-yellow-600 transition">Get a Quote</a>
         </div>
+        
     </section>
     
     <section id="towtruck-gallery" class="py-16 bg-gray-900 text-white text-center">
         <div class="max-w-7xl mx-auto px-6">
-            <h2 class="text-4xl font-bold text-gold uppercase tracking-widest">Our Tow Trucks</h2>
-            <p class="text-gray-400 mt-3 text-lg italic">Reliable and well-equipped for any towing job.</p>
-            <div class="carousel mt-8" data-flickity='{ "wrapAround": true, "autoPlay": 3000 }'>
-                <img src="img/towtruck1.jpg" alt="Tow Truck 1" class="w-80 h-52 object-cover rounded-lg shadow-lg cursor-pointer" onclick="openModal(this)">
-                <img src="img/towtruck2.jpg" alt="Tow Truck 2" class="w-80 h-52 object-cover rounded-lg shadow-lg cursor-pointer" onclick="openModal(this)">
-                <img src="img/towtruck3.jpg" alt="Tow Truck 3" class="w-80 h-52 object-cover rounded-lg shadow-lg cursor-pointer" onclick="openModal(this)">
+            <h2 class="text-4xl font-bold text-gold uppercase tracking-widest mb-4">Our Heavy Equipments</h2>
+            <p class="text-gray-400 mt-3 text-lg italic">Reliable and well-equipped for any construction job.</p>
+    
+            <!-- Cards -->
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mt-8">
+                <!-- Card 1 -->
+                <div class="bg-gray-800 rounded-lg shadow-lg overflow-hidden">
+                    <img src="img/hvduty.jpeg" alt="Heavy Equipment 1" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-2xl font-semibold text-gold mb-2">Heavy Duty Tow Truck</h3>
+                        <p class="text-gray-400 text-lg">Our heavy-duty tow trucks are designed to handle the toughest jobs, ensuring reliable towing even for the largest vehicles.</p>
+                    </div>
+                </div>
+    
+                <!-- Card 2 -->
+                <div class="bg-gray-800 rounded-lg shadow-lg overflow-hidden">
+                    <img src="img/hvduty2.jpg" alt="Heavy Equipment 2" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-2xl font-semibold text-gold mb-2">Construction Crane</h3>
+                        <p class="text-gray-400 text-lg">Built for lifting and moving heavy materials, our cranes are perfect for any construction site, providing maximum safety and efficiency.</p>
+                    </div>
+                </div>
+    
+                <!-- Card 3 -->
+                <div class="bg-gray-800 rounded-lg shadow-lg overflow-hidden">
+                    <img src="img/hvduty4.jpg" alt="Heavy Equipment 3" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-2xl font-semibold text-gold mb-2">Excavator</h3>
+                        <p class="text-gray-400 text-lg">Our excavators are perfect for digging, grading, and lifting, with high durability to handle even the most challenging terrain.</p>
+                    </div>
+                </div>
+    
+                <!-- Card 4 -->
+                <div class="bg-gray-800 rounded-lg shadow-lg overflow-hidden">
+                    <img src="img/hvduty4.jpg" alt="Heavy Equipment 4" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-2xl font-semibold text-gold mb-2">Bulldozer</h3>
+                        <p class="text-gray-400 text-lg">Our bulldozers are powerful, reliable, and versatile, built for moving large quantities of earth and other materials with ease.</p>
+                    </div>
+                </div>
+    
+                <!-- Card 5 -->
+                <div class="bg-gray-800 rounded-lg shadow-lg overflow-hidden">
+                    <img src="img/hvduty4.jpg" alt="Heavy Equipment 5" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-2xl font-semibold text-gold mb-2">Loader</h3>
+                        <p class="text-gray-400 text-lg">Our loaders are equipped for material handling, offering superior lifting and moving power for construction projects of all sizes.</p>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
     
-    <div id="imageModal" class="modal flex">
-        <img id="modalImage" src="" alt="Expanded Tow Truck">
-    </div>
     
+    
+    
+    
+
     <section id="contact" class="py-16 bg-gray-100 text-center">
         <div class="max-w-6xl mx-auto px-6">
             <h2 class="text-4xl font-bold text-black uppercase tracking-widest">Contact Us</h2>
@@ -87,7 +160,58 @@
             </form>
         </div>
     </section>
+    <footer class="bg-gradient-to-r from-gray-900 to-gray-800 text-white py-12">
+        <div class="max-w-6xl mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-8 text-center md:text-left">
+            
+            <!-- Company Info with Logo -->
+            <div class="flex flex-col md:flex-row items-center md:items-start space-y-3 md:space-y-0">
+                <img src="img/logo.png" alt="Penguin Logo" class="w-14 h-14 md:mr-3">
+                <div>
+                    <h3 class="text-xl font-semibold text-gold">Penguin Sales & Services</h3>
+                    <p class="text-gray-400 text-sm">Reliable solutions in transportation, construction, and auto services.</p>
+                </div>
+            </div>
     
+            <!-- Quick Links -->
+            <div>
+                <h3 class="text-xl font-semibold mb-3 text-gold">Quick Links</h3>
+                <ul class="space-y-2 text-gray-400 text-sm">
+                    <li><a href="#about" class="hover:text-gold transition">Home</a></li>
+                    <li><a href="#services" class="hover:text-gold transition">Services</a></li>
+                    <li><a href="#booking" class="hover:text-gold transition">Book now</a></li>
+                    <li><a href="#" class="hover:text-gold transition">Privacy Policy</a></li>
+                </ul>
+            </div>
+    
+            <!-- Contact Info -->
+            <div>
+                <h3 class="text-xl font-semibold mb-3 text-gold">Contact Us</h3>
+                <p class="text-gray-400 text-sm">📍 123 Main Street, City, Country</p>
+                <p class="text-gray-400 text-sm">📞 +1 234 567 890</p>
+                <p class="text-gray-400 text-sm">📧 contact@penguin.asia</p>
+            </div>
+    
+            <!-- Social Media -->
+            <div>
+                <h3 class="text-xl font-semibold mb-3 text-gold">Follow Us</h3>
+                <div class="flex justify-center md:justify-start space-x-4">
+                    <a href="#" class="text-gray-400 hover:text-gold transition"><i class="fab fa-facebook text-2xl"></i></a>
+                    <a href="#" class="text-gray-400 hover:text-gold transition"><i class="fab fa-twitter text-2xl"></i></a>
+                    <a href="#" class="text-gray-400 hover:text-gold transition"><i class="fab fa-youtube text-2xl"></i></a>
+                    <a href="#" class="text-gray-400 hover:text-gold transition"><i class="fab fa-instagram text-2xl"></i></a>
+                </div>
+            </div>
+    
+        </div>
+    
+        <!-- Divider -->
+        <div class="border-t border-gray-700 mt-8"></div>
+    
+        <!-- Copyright -->
+        <div class="text-center text-gray-500 text-sm mt-6">
+            &copy; 2025 Penguin Sales & Services. All rights reserved.
+        </div>
+    </footer>
     <script>
         function openModal(img) {
             document.getElementById("modalImage").src = img.src;
@@ -104,5 +228,24 @@
             document.querySelector('nav').classList.toggle('hidden');
         });
     </script>
+       <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const dropdownButton = document.getElementById("dropdown-btn");
+            const dropdownMenu = document.getElementById("dropdown-menu");
+        
+            dropdownButton.addEventListener("click", function (event) {
+                event.stopPropagation();
+                dropdownMenu.classList.toggle("hidden");
+            });
+        
+            document.addEventListener("click", function () {
+                dropdownMenu.classList.add("hidden");
+            });
+        
+            dropdownMenu.addEventListener("click", function (event) {
+                event.stopPropagation();
+            });
+        });
+        </script>
 </body>
 </html>
