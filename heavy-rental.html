@@ -42,6 +42,20 @@
             border-radius: 10px;
             overflow: hidden;
         }
+        #mobile-menu {
+            transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+            transform: translateY(-10px);
+            opacity: 0;
+            visibility: hidden;
+            position: absolute;
+            width: 100%;
+            background-color: black; /* Ensure background color is set */
+        }
+        #mobile-menu.show {
+            transform: translateY(0);
+            opacity: 1;
+            visibility: visible;
+        }
     </style>
 </head>
 <body class="bg-gray-100">
@@ -50,7 +64,7 @@
             <!-- Logo -->
             <a href="index.html" class="flex items-center space-x-3">
                 <img src="img/logo.png" alt="Penguin Logo" class="w-10 h-10">
-                <span class="text-xl font-semibold text-gold">Penguin Sales & Services -> Bridal Car Services</span>
+                <span class="text-xl font-semibold text-gold">Penguin Sales & Services -> Heavy Rental Equipments</span>
             </a>
     
             <!-- Hamburger Button (Mobile) -->
@@ -213,14 +227,14 @@
         </div>
     </footer>
     <script>
-        function openModal(img) {
-            document.getElementById("modalImage").src = img.src;
-            document.getElementById("imageModal").style.display = "flex";
-        }
-        document.getElementById("imageModal").addEventListener("click", function() {
-            this.style.display = "none";
-        });
-    </script>
+        const menuBtn = document.getElementById("menu-btn");
+     const menu = document.getElementById("menu");
+ 
+     menuBtn.addEventListener("click", () => {
+         menu.classList.toggle("hidden");
+     });    
+ 
+     </script>
     
     <script>
         const menuBtn = document.getElementById('menu-btn');
